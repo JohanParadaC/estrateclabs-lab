@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Estrateclabs | Innovation Lab Experience</title>
+    <style>
+        html, body { margin:0; padding:0; height:100%; background:#0a0f14; color:#e6f0ff; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+        #hud { position: fixed; top: 12px; left: 12px; background: rgba(0,0,0,0.4); padding: 10px 12px; border-radius: 8px; backdrop-filter: blur(6px); z-index: 5;}
+        #panel { position: fixed; right: 12px; top: 12px; width: 360px; max-width: 85vw; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px; display:none; z-index: 5;}
+        #panel h2 { margin-top:0; }
+        #voice { position: fixed; bottom: 12px; left: 12px; font-size: 14px; opacity: .8; z-index: 5;}
+        #hint { position: fixed; bottom: 12px; right: 12px; opacity: .7; font-size: 13px; z-index: 5;}
+        a.btn, button.btn { display:inline-block; padding:8px 10px; border:1px solid rgba(255,255,255,0.18); border-radius:8px; text-decoration:none; color:#e6f0ff; margin-top:8px; background:transparent; cursor:pointer;}
+        #errors { position: fixed; top: 12px; right: 12px; color: #ffb4b4; font-size: 12px; max-width: 40vw; z-index: 6;}
+        canvas { display:block; }
+    </style>
+
+    <!-- 🔑 Import map para que 'three' funcione en imports "desnudos" -->
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+            "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/"
+          }
+        }
+    </script>
+</head>
+<body>
+<div id="hud">
+    <div><strong>Innovation Lab</strong></div>
+    <div id="kpis">Conecta con la mesa para ver KPIs…</div>
+</div>
+
+<div id="panel">
+    <h2 id="panelTitle">Panel</h2>
+    <div id="panelBody"></div>
+    <div style="margin-top:8px">
+        <input id="chatInput" placeholder="Pregúntame algo…" style="width:70%"/>
+        <button id="chatSend" class="btn">Enviar</button>
+    </div>
+</div>
+
+<div id="voice">
+    🎙️ Di (después de activar voz): “ir a visión / abrir quiénes somos / abrir qué hacemos”
+    <div><button id="enableVoice" class="btn">Activar voz</button></div>
+</div>
+
+<div id="hint">🖱️ Clic en objetos holográficos • WASD/mouse para explorar</div>
+<div id="errors"></div>
+
+<!-- Cargamos app.js como módulo -->
+<script type="module" src="/app.js?v=2"></script>
+</body>
+</html>
